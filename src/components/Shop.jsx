@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Product from "./Product";
 
 const fakeData=[
     {
@@ -347,14 +348,19 @@ const fakeData=[
 const Shop = () => {
     const [product,setProduct]=useState(fakeData)
     
+    const addToCard=(prouct)=>{
+      console.log(prouct)
+    }
+    
     return (
         <>       
-                <div className="flex ">
-                    <div className="w-[70%] px-20 border-r-2">
+                <div className=" md:flex ">
+                    <div className=" md:w-[80%] px-5 md:px-20  border-r-2 ">
                         <ul>
                             {
                                 product.map((productItem,i)=>(
-                                    <li key={i} className="list-disc">{productItem.name}</li>
+                                    
+                                    <Product  key={i} product={productItem} addToCard={addToCard}/>
                                     ))
                             }
                         </ul>
